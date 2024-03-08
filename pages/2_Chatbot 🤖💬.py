@@ -66,14 +66,14 @@ _inputs = RunnableParallel(
         chat_history=lambda x: get_buffer_string(x["chat_history"])
     )
     | CONDENSE_QUESTION_PROMPT
-    | ChatOpenAI()
+    | ChatOpenAI(temperature=0.8)
     | StrOutputParser()
 )
 _context = {
     "context": itemgetter("standalone_question") | retriever | _combine_documents,
     "question": lambda x: x["standalone_question"],
 }
-conversational_qa_chain = _inputs | _context | ANSWER_PROMPT | ChatOpenAI()
+conversational_qa_chain = _inputs | _context | ANSWER_PROMPT | ChatOpenAI(temperature=0.8)
 
 
 def reset_conversation():
