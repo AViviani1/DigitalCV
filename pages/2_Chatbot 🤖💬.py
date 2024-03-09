@@ -99,7 +99,7 @@ def main():
         st.subheader("Brief explanation of the model:")
         st.write(
         """
-        This chatbot was made by using the LangChain framework, which allows you to combine the power of 
+        This chatbot was made using the LangChain framework, which allows you to combine the power of 
         Chatgpt and the knowledge stored inside a database. This enable the chatbot to be context-aware: the language 
         model has access to informations, prompt instructions and examples that helps him solve its specific task in
         its specific setting. \n
